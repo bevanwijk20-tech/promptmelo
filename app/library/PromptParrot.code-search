@@ -1,0 +1,21 @@
+# Query: PromptParrot
+# ContextLines: 1
+
+5 results - 3 files
+
+~/promptparrot/app/page.tsx:
+  175            <img src="/logo.png" alt="Prompt Parrot" style={{ width: 32, height: 32, borderRadius: 6, objectFit: "contain", mixBlendMode: mode === "dark" ? "screen" : "multiply" } as any} />
+  176:           <span style={{ fontWeight: 600, fontSize: 15, letterSpacing: "-0.02em", color: t.textPrimary }}>Prompt Parrot</span>
+  177            <span style={{ fontSize: 10, fontFamily: "DM Mono, monospace", background: t.bgBadge, color: t.textBadge, padding: "2px 7px", borderRadius: 4, border: `1px solid ${t.border}` }}>BETA</span>
+
+~/promptparrot/app/library/page.tsx:
+  60          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+  61:           <img src="/logo.png" alt="Prompt Parrot" style={{ width: 32, height: 32, mixBlendMode: "screen", borderRadius: 6 } as any} />
+  62:           <span style={{ fontWeight: 600, fontSize: 15, color: t.textPrimary }}>Prompt Parrot</span>
+  63            <span style={{ fontSize: 10, fontFamily: "DM Mono, monospace", background: t.bgBadge, color: t.textBadge, padding: "2px 7px", borderRadius: 4, border: `1px solid ${t.border}` }}>BETA</span>
+
+~/promptparrot/app/login/page.tsx:
+  48          <div style={{ textAlign: "center", marginBottom: 32 }}>
+  49:           <img src="/logo.png" alt="Prompt Parrot" style={{ width: 48, height: 48, mixBlendMode: "screen", marginBottom: 12 }} />
+  50:           <h1 style={{ fontSize: 22, fontWeight: 600, color: t.textPrimary, margin: "0 0 4px", letterSpacing: "-0.02em" }}>Prompt Parrot</h1>
+  51            <p style={{ color: t.textMuted, fontSize: 13, margin: 0 }}>{isSignUp ? "Create your account" : "Welcome back"}</p>
