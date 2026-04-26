@@ -34,8 +34,8 @@ const themes = {
     bgBadge: "#11173a", bgSuccess: "#0a1f10", bgError: "#1a0808",
     border: "#1a2540", borderStrong: "#243050", borderSuccess: "#166534", borderError: "#7f1d1d",
     textPrimary: "#eef2ff", textSecondary: "#8899bb", textMuted: "#4a5a7a",
-    textPlaceholder: "#2a3a55", textTag: "#5a7aaa", textBadge: "#818cf8",
-    textSuccess: "#86efac", textError: "#fca5a5", textAccent: "#a5b4fc",
+    textPlaceholder: "#2a3a55", textTag: "#5a7aaa",
+    textBadge: "#818cf8", textSuccess: "#86efac", textError: "#fca5a5", textAccent: "#a5b4fc",
     scrollThumb: "#1a2540", ringTrack: "#1a2540", arrow: "#2a3a55",
     headerBg: "rgba(8,15,30,0.92)", navActive: "#0d1829", navActiveTxt: "#eef2ff",
     navInactiveTxt: "#3a4a6a", gradient: "linear-gradient(135deg, #eef2ff 20%, #818cf8)",
@@ -136,6 +136,16 @@ export default function PromptOptimizer() {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  function openInAI() {
+    const prompt = encodeURIComponent(result.optimized_prompt);
+    const model = result.best_for?.toLowerCase() || "";
+    let url = `https://chatgpt.com/?q=${prompt}`;
+    if (model.includes("claude")) url = `https://claude.ai/new?q=${prompt}`;
+    else if (model.includes("gemini")) url = `https://gemini.google.com/app?q=${prompt}`;
+    else if (model.includes("deepseek")) url = `https://chat.deepseek.com/?q=${prompt}`;
+    window.open(url, "_blank");
   }
 
   const ScoreRing = ({ score, label }: { score: number; label: string }) => {
@@ -265,12 +275,15 @@ export default function PromptOptimizer() {
               {activeTab === "optimized" && (
                 <div style={{ padding: "20px" }}>
                   <p style={{ fontSize: 14, lineHeight: 1.8, color: t.textSecondary, margin: "0 0 16px", whiteSpace: "pre-wrap" }}>{result.optimized_prompt}</p>
-                  <div style={{ display: "flex", gap: 8 }}>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                     <button onClick={() => copyToClipboard(result.optimized_prompt)} style={{ background: copied ? t.bgSuccess : t.bgTag, border: `1px solid ${copied ? t.borderSuccess : t.border}`, color: copied ? t.textSuccess : t.textTag, padding: "6px 14px", borderRadius: 7, cursor: "pointer", fontSize: 11, fontFamily: "DM Mono, monospace" }}>
                       {copied ? "✓ Copied" : "Copy prompt"}
                     </button>
                     <button onClick={savePrompt} style={{ background: saved ? t.bgSuccess : t.bgTag, border: `1px solid ${saved ? t.borderSuccess : t.border}`, color: saved ? t.textSuccess : t.textTag, padding: "6px 14px", borderRadius: 7, cursor: "pointer", fontSize: 11, fontFamily: "DM Mono, monospace" }}>
                       {saved ? "✓ Saved" : "Save to library"}
+                    </button>
+                    <button onClick={openInAI} style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", border: "none", color: "#fff", padding: "6px 14px", borderRadius: 7, cursor: "pointer", fontSize: 11, fontFamily: "DM Mono, monospace", display: "flex", alignItems: "center", gap: 5 }}>
+                      Open in {result.best_for?.split("/")[0].trim() || "AI"} ↗
                     </button>
                   </div>
                 </div>
