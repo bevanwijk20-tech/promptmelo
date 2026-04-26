@@ -49,7 +49,7 @@ export default function LandingPage() {
     },
     {
       icon: "⟡",
-      title: "Works With Any AI",
+      title: "Open your optimized prompt directly in ChatGPT, Claude, Gemini or DeepSeek with one click — no copy-pasting needed.",
       desc: "Whether you use ChatGPT, Claude, Gemini, or any other model — Promptmelo optimizes your prompts for maximum effectiveness across all platforms.",
     },
     {
