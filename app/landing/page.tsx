@@ -325,6 +325,12 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
+      {/* Product Hunt badge */}
+<div style={{ textAlign: "center", padding: "40px 24px 0", borderTop: "1px solid #eef0ff" }}>
+  <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
+    <img alt='Promptmelo on Product Hunt' src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
+  </a>
+</div>
       <footer style={{ borderTop: "1px solid #eef0ff", padding: "32px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontSize: 18 }}>🍉</span>
