@@ -326,7 +326,7 @@ export default function LandingPage() {
 
       {/* Footer */}
       {/* Product Hunt badge */}
-<div style={{ textAlign: "center", padding: "40px 24px 0", borderTop: "1px solid #eef0ff" }}>
+<div style={{ textAlign: "center", padding: "40px 24px", background: "#fff", borderTop: "1px solid #eef0ff" }}>
   <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
     <img alt='Promptmelo on Product Hunt' src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
   </a>
@@ -336,7 +336,12 @@ export default function LandingPage() {
           <span style={{ fontSize: 18 }}>🍉</span>
           <span style={{ fontSize: 13, fontWeight: 600, color: "#0f172a" }}>Promptmelo</span>
         </div>
-        <p style={{ fontSize: 12, color: "#b0bdd8", fontFamily: "DM Mono, monospace" }}>© 2025 Promptmelo · Built by Berend van Wijk</p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+  <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
+    <img alt='Promptmelo on Product Hunt' src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
+  </a>
+  <p style={{ fontSize: 12, color: "#b0bdd8", fontFamily: "DM Mono, monospace", margin: 0 }}>© 2025 Promptmelo · Built by Berend van Wijk</p>
+</div>
         <div style={{ display: "flex", gap: 20 }}>
           {["Privacy", "Terms", "Contact"].map(item => (
             <button key={item} style={{ background: "none", border: "none", color: "#b0bdd8", fontSize: 12, cursor: "pointer", fontFamily: "DM Sans, system-ui" }}>{item}</button>
