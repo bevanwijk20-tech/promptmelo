@@ -30,6 +30,16 @@ Respond ONLY with valid JSON in this exact format:
   "category": "Writing / Coding / Analysis / Creative / Business"
 }`;
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export async function OPTIONS() {
+  return NextResponse.json({}, { headers: corsHeaders });
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { prompt } = await req.json();
@@ -37,14 +47,14 @@ export async function POST(req: NextRequest) {
     if (!prompt || typeof prompt !== "string") {
       return NextResponse.json(
         { error: "Prompt is required" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
     if (prompt.length > 4000) {
       return NextResponse.json(
         { error: "Prompt too long (max 4000 characters)" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -59,14 +69,15 @@ export async function POST(req: NextRequest) {
     });
 
     const text = response.choices[0].message.content || "";
-    console.log("API response:", text);
     const result = JSON.parse(text);
 
-    return NextResponse.json(result);
+    return NextResponse.json(result, { headers: corsHeaders });
   } catch (error) {
     console.error("Optimize error:", JSON.stringify(error, null, 2));
     if (error instanceof Error) console.error("Message:", error.message);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500, headers: corsHeaders }
+    );
   }
 }
-console.log("API KEY:", process.env.DEEPSEEK_API_KEY);
