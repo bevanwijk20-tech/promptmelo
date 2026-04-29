@@ -166,7 +166,7 @@ export default function LandingPage() {
           Paste any prompt and get an AI-optimized version with a quality score and explanation — in seconds.
         </p>
 
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center", animation: "fadeUp 0.8s ease 0.3s both", marginBottom: 64 }}>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center", animation: "fadeUp 0.8s ease 0.3s both", marginBottom: 32 }}>
           <button className="cta-btn" onClick={() => router.push("/login")} style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", border: "none", color: "#fff", padding: "13px 28px", borderRadius: 10, cursor: "pointer", fontSize: 15, fontWeight: 500, fontFamily: "DM Sans, system-ui" }}>
             Start optimizing for free →
           </button>
@@ -349,3 +349,8 @@ export default function LandingPage() {
     </div>
   );
 }
+<div style={{ animation: "fadeUp 0.8s ease 0.4s both", marginBottom: 40 }}>
+  <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
+    <img alt='Promptmelo on Product Hunt' src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
+  </a>
+</div>
