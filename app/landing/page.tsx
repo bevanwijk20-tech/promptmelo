@@ -32,63 +32,19 @@ export default function LandingPage() {
   const isVisible = (id: string) => visible.has(id);
 
   const features = [
-    {
-      icon: "✦",
-      title: "AI-Powered Optimization",
-      desc: "Our AI analyzes your prompt on clarity, context, specificity, and tone — then rewrites it to get you dramatically better results from any AI model.",
-    },
-    {
-      icon: "◎",
-      title: "Before & After Score",
-      desc: "Every optimization comes with a quality score from 0–100, so you can see exactly how much your prompt improved and track your progress over time.",
-    },
-    {
-      icon: "⊞",
-      title: "Personal Prompt Library",
-      desc: "Save your best optimized prompts in one place. Search, copy, and reuse them anytime — no more losing great prompts in chat history.",
-    },
-    {
-      icon: "⟡",
-      title: "Open your optimized prompt directly in ChatGPT, Claude, Gemini or DeepSeek with one click — no copy-pasting needed.",
-      desc: "Whether you use ChatGPT, Claude, Gemini, or any other model — Promptmelo optimizes your prompts for maximum effectiveness across all platforms.",
-    },
-    {
-      icon: "↗",
-      title: "Learn As You Go",
-      desc: "Every optimization comes with a clear explanation of what changed and why. Over time, you'll naturally write better prompts yourself.",
-    },
-    {
-      icon: "⚡",
-      title: "Instant Results",
-      desc: "No waiting, no setup. Paste your prompt, click optimize, and get a better version in seconds. It's that simple.",
-    },
+    { icon: "✦", title: "AI-Powered Optimization", desc: "Our AI analyzes your prompt on clarity, context, specificity, and tone — then rewrites it to get you dramatically better results from any AI model." },
+    { icon: "◎", title: "Before & After Score", desc: "Every optimization comes with a quality score from 0–100, so you can see exactly how much your prompt improved and track your progress over time." },
+    { icon: "⊞", title: "Personal Prompt Library", desc: "Save your best optimized prompts in one place. Search, copy, and reuse them anytime — no more losing great prompts in chat history." },
+    { icon: "⟡", title: "Open in Any AI", desc: "Open your optimized prompt directly in ChatGPT, Claude, Gemini or DeepSeek with one click — no copy-pasting needed." },
+    { icon: "↗", title: "Learn As You Go", desc: "Every optimization comes with a clear explanation of what changed and why. Over time, you'll naturally write better prompts yourself." },
+    { icon: "⚡", title: "Instant Results", desc: "No waiting, no setup. Paste your prompt, click optimize, and get a better version in seconds. It's that simple." },
   ];
 
   const steps = [
-    {
-      num: "01",
-      title: "Paste your prompt",
-      desc: "Copy any prompt you've been struggling with — whether it's for writing, coding, analysis, or creativity — and paste it into Promptmelo.",
-      detail: "Works with any prompt, any length, any topic.",
-    },
-    {
-      num: "02",
-      title: "AI analyzes & rewrites",
-      desc: "Our AI instantly identifies what's weak about your prompt: missing context, vague instructions, wrong tone, unclear goals — and fixes all of it.",
-      detail: "Powered by state-of-the-art language models.",
-    },
-    {
-      num: "03",
-      title: "Review the improvements",
-      desc: "See exactly what changed and why. You get a quality score, a list of improvements, and the best AI model to use your new prompt with.",
-      detail: "Transparent explanations, no black box.",
-    },
-    {
-      num: "04",
-      title: "Copy, use & save",
-      desc: "Copy your optimized prompt with one click and use it immediately. Save it to your personal library to reuse anytime in the future.",
-      detail: "Build your own library of high-quality prompts.",
-    },
+    { num: "01", title: "Paste your prompt", desc: "Copy any prompt you've been struggling with and paste it into Promptmelo.", detail: "Works with any prompt, any length, any topic." },
+    { num: "02", title: "AI analyzes & rewrites", desc: "Our AI instantly identifies what's weak about your prompt and fixes all of it.", detail: "Powered by state-of-the-art language models." },
+    { num: "03", title: "Review the improvements", desc: "See exactly what changed and why, with a quality score and model recommendation.", detail: "Transparent explanations, no black box." },
+    { num: "04", title: "Copy, use & save", desc: "Copy your optimized prompt with one click and save it to your personal library.", detail: "Build your own library of high-quality prompts." },
   ];
 
   return (
@@ -133,10 +89,7 @@ export default function LandingPage() {
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
           {["Features", "How it works", "About"].map(item => (
             <button key={item} className="nav-link" style={{ background: "none", border: "none", color: "#7b8db5", fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "DM Sans, system-ui", transition: "color 0.2s" }}
-              onClick={() => {
-  const id = item === "How it works" ? "how-it-works" : item.toLowerCase();
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}}>
+              onClick={() => document.getElementById(item === "How it works" ? "how-it-works" : item.toLowerCase())?.scrollIntoView({ behavior: "smooth" })}>
               {item}
             </button>
           ))}
@@ -166,7 +119,8 @@ export default function LandingPage() {
           Paste any prompt and get an AI-optimized version with a quality score and explanation — in seconds.
         </p>
 
-        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center", animation: "fadeUp 0.8s ease 0.3s both", marginBottom: 32 }}>
+        {/* CTA buttons */}
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center", animation: "fadeUp 0.8s ease 0.3s both", marginBottom: 24 }}>
           <button className="cta-btn" onClick={() => router.push("/login")} style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", border: "none", color: "#fff", padding: "13px 28px", borderRadius: 10, cursor: "pointer", fontSize: 15, fontWeight: 500, fontFamily: "DM Sans, system-ui" }}>
             Start optimizing for free →
           </button>
@@ -175,8 +129,15 @@ export default function LandingPage() {
           </button>
         </div>
 
+        {/* Product Hunt badge */}
+        <div style={{ animation: "fadeUp 0.8s ease 0.4s both", marginBottom: 48, display: "flex", justifyContent: "center" }}>
+          <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
+            <img alt="Promptmelo on Product Hunt" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
+          </a>
+        </div>
+
         {/* Hero mockup */}
-        <div style={{ animation: "fadeUp 0.9s ease 0.4s both, float 6s ease-in-out 1s infinite", width: "100%", maxWidth: 680 }}>
+        <div style={{ animation: "fadeUp 0.9s ease 0.5s both, float 6s ease-in-out 1s infinite", width: "100%", maxWidth: 680 }}>
           <div style={{ background: "#fff", borderRadius: 20, border: "1px solid #dde2f5", boxShadow: "0 32px 80px rgba(99,102,241,0.12), 0 8px 24px rgba(0,0,0,0.06)", overflow: "hidden" }}>
             <div style={{ padding: "14px 20px", borderBottom: "1px solid #f0f2ff", display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#fca5a5" }} />
@@ -325,21 +286,12 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      {/* Product Hunt badge */}
-<div style={{ textAlign: "center", padding: "40px 24px", background: "#fff", borderTop: "1px solid #eef0ff" }}>
-  <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
-    <img alt='Promptmelo on Product Hunt' src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
-  </a>
-</div>
       <footer style={{ borderTop: "1px solid #eef0ff", padding: "32px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontSize: 18 }}>🍉</span>
           <span style={{ fontSize: 13, fontWeight: 600, color: "#0f172a" }}>Promptmelo</span>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-  
-  <p style={{ fontSize: 12, color: "#b0bdd8", fontFamily: "DM Mono, monospace", margin: 0 }}>© 2025 Promptmelo · Built by Berend van Wijk</p>
-</div>
+        <p style={{ fontSize: 12, color: "#b0bdd8", fontFamily: "DM Mono, monospace" }}>© 2025 Promptmelo · Built by Berend van Wijk</p>
         <div style={{ display: "flex", gap: 20 }}>
           {["Privacy", "Terms", "Contact"].map(item => (
             <button key={item} style={{ background: "none", border: "none", color: "#b0bdd8", fontSize: 12, cursor: "pointer", fontFamily: "DM Sans, system-ui" }}>{item}</button>
@@ -349,8 +301,3 @@ export default function LandingPage() {
     </div>
   );
 }
-<div style={{ animation: "fadeUp 0.8s ease 0.4s both", marginBottom: 40 }}>
-  <a href="https://www.producthunt.com/products/promptmelo-com?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-promptmelo" target="_blank" rel="noopener noreferrer">
-    <img alt='Promptmelo on Product Hunt' src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1132829&theme=light&t=1777274490559" width="250" height="54" />
-  </a>
-</div>
