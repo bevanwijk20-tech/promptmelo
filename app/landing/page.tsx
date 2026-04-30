@@ -87,9 +87,12 @@ export default function LandingPage() {
           <span style={{ fontWeight: 600, fontSize: 15, color: "#0f172a", letterSpacing: "-0.02em" }}>Promptmelo</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 28 }}>
-          {["Features", "How it works", "About"].map(item => (
+          {["Features", "How it works", "About", "Blog"].map(item => (
             <button key={item} className="nav-link" style={{ background: "none", border: "none", color: "#7b8db5", fontSize: 13, fontWeight: 500, cursor: "pointer", fontFamily: "DM Sans, system-ui", transition: "color 0.2s" }}
-              onClick={() => document.getElementById(item === "How it works" ? "how-it-works" : item.toLowerCase())?.scrollIntoView({ behavior: "smooth" })}>
+              onClick={() => {
+  if (item === "Blog") { window.location.href = "/blog"; return; }
+  document.getElementById(item === "How it works" ? "how-it-works" : item.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+}}>
               {item}
             </button>
           ))}

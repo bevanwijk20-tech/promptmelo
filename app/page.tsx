@@ -196,7 +196,7 @@ export default function PromptOptimizer() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
           <nav style={{ display: "flex", gap: 2 }}>
-            {([["Optimizer", "/"], ["Library", "/library"]] as [string, string][]).map(([label, href]) => (
+            {([["Optimizer", "/"], ["Library", "/library"], ["Blog", "/blog"]] as [string, string][]).map(([label, href]) => (
               <button key={label} onClick={() => router.push(href)} style={{ background: label === "Optimizer" ? t.navActive : "transparent", border: "none", color: label === "Optimizer" ? t.navActiveTxt : t.navInactiveTxt, padding: "5px 12px", borderRadius: 6, cursor: "pointer", fontSize: 13, fontWeight: 500 }}>{label}</button>
             ))}
           </nav>
