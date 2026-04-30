@@ -44,7 +44,7 @@ export default function PrivacyPage() {
         },
         {
           title: "9. Contact",
-          content: "If you have any questions about this Privacy Policy, contact us at: berend@promptmelo.com"
+          content: "If you have any questions about this Privacy Policy, contact us at: bevanwik20@gmail.com"
         },
       ].map(({ title, content }) => (
         <div key={title} style={{ marginBottom: 36 }}>
