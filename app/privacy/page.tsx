@@ -6,7 +6,7 @@ export default function PrivacyPage() {
       <div style={{ marginBottom: 48 }}>
         <span style={{ fontSize: 24, display: "block", marginBottom: 16 }}>🍉</span>
         <h1 style={{ fontSize: 32, fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 8 }}>Privacy Policy</h1>
-        <p style={{ fontSize: 13, fontFamily: "DM Mono, monospace", color: "#b0bdd8" }}>Last updated: April 2025</p>
+        <p style={{ fontSize: 13, fontFamily: "DM Mono, monospace", color: "#b0bdd8" }}>Last updated: April 2026</p>
       </div>
 
       {[
